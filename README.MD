@@ -43,11 +43,6 @@ Passo 12) Agora basta clicar em Install para iniciar a instalação. O Windows v
 Passo 13) Terminada a instalação clique em Finish e pronto.
 
 ```
-* Instalando Playwright  
-```
-Passo 1) Após as instalações feitas, iniciar o editor de texto Visual Studio Code. 
-Passo 2) Abrir o terminal do editor de texto utilizando comando ctrl+' 
-Passo 3) Utilizar o comando npm i -D @playwright/test.
 ```
 
 ## 🛠️ Ferramentas
