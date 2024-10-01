@@ -64,30 +64,4 @@ export class BasePage {
       throw this.msgError;
     }
   }
-
- 
-  //Funcao para escolher em um "select" clicando no selector desejado e na opcao desejada
-  public async select(
-    selector: string,
-    option: string,
-    timeout?: number
-  ): Promise<void> {
-    try {
-      await this.page.waitForSelector(selector,{
-        timeout: timeout === undefined ? 60000 : timeout,
-      });
-      this.highElement(selector);
-      await this.page.click(selector);
-      const element = await this.page.isVisible(option);
-      if (!element) {
-        this.highElement(selector);
-        await this.page.click(selector);
-      }
-      this.highElement(option);
-      await this.page.click(option);
-    } catch (error) {
-      await this.generateLogError.screenShotError(this.page, String(error));
-      throw this.msgError;
-    }
-  }
 }
