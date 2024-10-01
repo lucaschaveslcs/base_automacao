@@ -75,7 +75,7 @@ export class BasePage {
       this.highElement(selector);
       await this.page.click(selector);
       this.highElement(selector);
-      await this.page.selectOption(selector,option);
+      await this.page.selectOption(selector,{label: option});
     } catch (error) {
       await this.generateLogError.screenShotError(this.page, String(error));
       throw this.msgError;
