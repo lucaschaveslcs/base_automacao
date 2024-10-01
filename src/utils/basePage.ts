@@ -64,4 +64,21 @@ export class BasePage {
       throw this.msgError;
     }
   }
+
+  //Funcao para escolher em um "select" clicando no selector desejado e na opcao desejada
+  public async select(
+    selector: string,
+    option: string,
+  ): Promise<void> {
+    try {
+      await this.page.waitForSelector(selector);
+      this.highElement(selector);
+      await this.page.click(selector);
+      this.highElement(selector);
+      await this.page.selectOption(selector,option);
+    } catch (error) {
+      await this.generateLogError.screenShotError(this.page, String(error));
+      throw this.msgError;
+    }
+  }
 }
