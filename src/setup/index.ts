@@ -8,11 +8,13 @@ export class Setup {
     defaultViewport: null,
   };
 
+  //funcao para abrir o navegador 
   public async browserSetup(browserToLaunch: BrowserType): Promise<Browser> {
     console.log("<=======ABRINDO BROWSER========>");
     return await browserToLaunch.launch(this.browserConfig);
   }
 
+  //funcao para iniciar o context e com suas configurações necessarias
   public async browserContext(browser: Browser) {
     const context = await browser.newContext({
       ignoreHTTPSErrors: true,
@@ -23,16 +25,19 @@ export class Setup {
     return context;
   }
 
+  //funcao para abrir nova pagina
   public async browserNewPage(context: BrowserContext) {
     console.log("<=======ABRINDO PÁGINA========>");
     return await context.newPage();
   }
 
+  //funcao para fechar a pagina
   public async browserPageClose(page: Page) {
     console.log("<=======FECHANDO PÁGINA========>");
     await page.close();
   }
 
+  //funcao para fechar o browser
   public async browserClose(browser: Browser) {
     console.log("<=======FECHANDO BROWSER========>");
     await browser.close();
