@@ -32,7 +32,7 @@ describe("Teste de Login", () => {
    await setup.browserClose(browser);                             //Finaliza o navegador
   })
   
-  test.only("Realizar Login", async () => {   
+  test.only("Realizar Login", async () => {                       //Caso de teste a ser realizado
     await loginPage.goToPage();
   });
 });
