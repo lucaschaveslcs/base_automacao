@@ -21,7 +21,6 @@ describe("Teste de Login", () => {
     global.nameTest = String(expect.getState().currentTestName);    //Armazena o nome do test numa variavel global
     page = await setup.browserNewPage(context);                     //Instancia uma nova aba dentro da janela que ja foi aberta anteriormente
     loginPage = new LoginPage(page);                                //A página que contém os actions recebe a referencia da page que foi inicializada
-    await loginPage.goToPage();
   });
 
   afterEach(async () => {                                          //Ocorre após CADA teste
@@ -33,6 +32,6 @@ describe("Teste de Login", () => {
   })
   
   test.only("Realizar Login", async () => {                       //Caso de teste a ser realizado
-    await loginPage.goToPage();
+    await page.goto("https://www.saucedemo.com/");  
   });
 });
