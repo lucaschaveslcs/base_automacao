@@ -8,6 +8,7 @@ export class BasePage {
   private msgError = "Não foi possível encontrar o elemento.";
   private generateLogError = new GenerateLogError();
 
+  //funcao para preencher algum campo selecionado na pagina
   public async fillInput(
     input: string,
     text: string,
@@ -46,6 +47,7 @@ export class BasePage {
     }
   }
 
+  //funcao para clicar em possiveis pop up que surgir na tela quando necessario
   public async popUpConfirme(
     selector: string,
     timeout: number

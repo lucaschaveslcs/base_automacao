@@ -7,7 +7,7 @@ jest.setTimeout(300000);  //Tempo máximo que cada teste terá para poder execut
 const setup = new Setup();
 
 describe("Teste de Login", () => {
-  let page: Page;                //Declaração da Page, Page = uma nova Aba dentro do contexto, cada
+  let page: Page;                //Declaração da Page, Page = uma nova Aba dentro do contexto
   let context: BrowserContext;   //Declaração de Context, Context = representa uma nova 'janela' isolada no navegador, onde pode se ter várias pages diferentes
   let browser: Browser;          //Declaração do Browser, Browser refere-se ao navegador que será iniciado para realizar os testes
   let loginPage: LoginPage;      //Declaração de LoginPage, página na qual contém as actions que queremos utilizar
