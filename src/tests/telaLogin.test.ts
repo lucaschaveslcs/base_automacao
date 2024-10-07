@@ -21,6 +21,7 @@ describe("Teste de Login", () => {
     global.nameTest = String(expect.getState().currentTestName);    //Armazena o nome do test numa variavel global
     page = await setup.browserNewPage(context);                     //Instancia uma nova aba dentro da janela que ja foi aberta anteriormente
     loginPage = new LoginPage(page);                                //A página que contém os actions recebe a referencia da page que foi inicializada
+    await loginPage.goToPage();
   });
 
   afterEach(async () => {                                          //Ocorre após CADA teste
@@ -31,7 +32,16 @@ describe("Teste de Login", () => {
    await setup.browserClose(browser);                             //Finaliza o navegador
   })
   
-  test.only("Realizar Login", async () => {                       //Caso de teste a ser realizado
-    await page.goto("https://www.saucedemo.com/");  
+  test("Realizar Login", async () => { 
+    await loginPage.realizarLogin("loginValido");
+    const validacao = await loginPage.validarLogin();
+    expect(true).toBe(validacao);
   });
+
+  test("Relizar Login inválido", async () => {
+    await loginPage.realizarLogin("loginInvalido");
+    const validacao = await loginPage.validarMensagemErro();
+    expect(true).toBe(validacao); 
+  });
+
 });
